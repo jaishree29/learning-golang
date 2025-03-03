@@ -23,7 +23,7 @@ func main() {
 
 
 	myNumber := 23
-	var newPtr = &myNumber
+	var newPtr = &myNumber //Here we are assigning the address of myNumber to newPtr
 	*newPtr = *newPtr * 2 // Here we are multiplying the value of newPtr
 	fmt.Println(myNumber)
 }

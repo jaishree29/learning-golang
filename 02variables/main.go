@@ -31,7 +31,7 @@ func main() {
 	fmt.Printf("Variable is of type: %T \n", name)
 
 	//no var style
-	numberOfUsers := 800
+	numberOfUsers := 800 // The symbol := means we are declaring and initializing the variable at the same time
 	fmt.Println(numberOfUsers)
 
 	fmt.Println(LoginToken)	
