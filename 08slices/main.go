@@ -14,7 +14,7 @@ func main() {
 	fruitList = append(fruitList, "Mango", "Grapes", "Papaya")
 	fmt.Println(fruitList)
 
-	fruitList = append(fruitList[1:3]) //Here we are slicing the array using append method
+	fruitList = fruitList[1:3] //Here we are slicing the array using append method
 	fmt.Println(fruitList)
 
 	highScores := make([]int, 4)
