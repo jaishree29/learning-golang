@@ -9,6 +9,11 @@ import (
 
 const myUrl string = "https://api.restful-api.dev/objects"
 
+func main() {
+	makeGetRequest()
+	makePostRequest()
+}
+
 func makeGetRequest() {
 	response, err := http.Get(myUrl)
 	if err != nil {
@@ -33,6 +38,32 @@ func makeGetRequest() {
 	defer response.Body.Close()
 }
 
-func main() {
-	makeGetRequest()
+func makePostRequest() {
+	requestBody := strings.NewReader(`
+		{
+			"name": "Apple MacBook Pro 16",
+			"data": {
+			"year": 2019,
+			"price": 1849.99,
+			"CPU model": "Intel Core i9",
+			"Hard disk size": "1 TB"
+			}
+	   }
+	`)
+
+	response, err := http.Post(myUrl, "application/json", requestBody)
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println(response.StatusCode)
+	content, err := io.ReadAll(response.Body)
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println(string(content))
+	defer response.Body.Close()
 }
+
+
